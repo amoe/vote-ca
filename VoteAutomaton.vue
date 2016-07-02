@@ -4,9 +4,9 @@
   
   <table>
 
-    <tr v-for="n in ySize">
-      <td v-for="n in xSize">
-        &#x25a0; &#9633;
+    <tr v-for="n in grid.length">
+      <td v-for="n in grid[n].length">
+        &#x25a0;
       </td>
     </tr>
   </table>
@@ -29,7 +29,6 @@ export default {
     },
     created: function () {
         this.grid = vote.randomGrid(this.ySize, this.xSize);
-        console.log(JSON.stringify(this.grid));
     }
 }
 </script>
