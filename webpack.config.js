@@ -1,7 +1,7 @@
 // webpack configuration file
 
 module.exports = {
-    entry: "./entry.js",
+    entry: ['babel-polyfill', "./entry.js"],
     output: {
         filename: "build.js"
     },
