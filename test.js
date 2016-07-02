@@ -7,7 +7,7 @@ var something = require('./main.js');
 it('next step is correct', function () {
     var grid = [
         [false, false, false],
-        [false, true,  false],
+        [false, false,  false],
         [false, false, false]
     ];
 

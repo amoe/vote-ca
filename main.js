@@ -8,15 +8,13 @@ var nextState = [
 ]
 
 function nextStep(grid) {
-    yRange = grid.length;
-    xRange = grid[0].length;    // FIXME: assert that grid is square
+    var yRange = grid.length;
+    var xRange = grid[0].length;    // FIXME: assert that grid is square
 
     // ES6 only
-    /*
-    for (let xIndex of _.range(yRange)) {
-        console.log("What?");
-    }
-    */
+    // for (let xIndex of [1, 2, 3, 4, 5]) {
+    //     console.log("What?");
+    // }
 
     return grid;
 }

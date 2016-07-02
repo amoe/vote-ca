@@ -1,5 +1,7 @@
 // karma.conf.js
 
+var webpackConfig = require('./webpack.config.js');
+
 module.exports = function (config) {
     config.set({
         singleRun: true,
@@ -8,6 +10,7 @@ module.exports = function (config) {
         preprocessors: {
             'test.js': ['webpack']
         },
+        webpack: webpackConfig,
         frameworks: ['mocha']
     });
 };
