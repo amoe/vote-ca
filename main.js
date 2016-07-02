@@ -8,8 +8,20 @@ var nextState = [
 ]
 
 function nextStep(grid) {
+    yRange = grid.length;
+    xRange = grid[0].length;    // FIXME: assert that grid is square
+
+    // ES6 only
+    /*
+    for (let xIndex of _.range(yRange)) {
+        console.log("What?");
+    }
+    */
+
     return grid;
 }
+
+
 
 function meaningOfLife() {
     return 42;
