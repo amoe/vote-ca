@@ -4,8 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "true"
+    "test": "karma start karma.conf.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "3.5.0",
+    "karma": "1.1.0",
+    "karma-mocha": "1.1.1",
+    "karma-phantomjs-launcher": "1.0.1",
+    "karma-webpack": "1.7.0",
+    "mocha": "2.5.3",
+    "webpack": "1.13.1"
+  }
 }
