@@ -1,6 +1,10 @@
 // webpack entry point
 
+var Vue = require('vue');
 var vote = require('./vote.js');
+var VoteAutomaton = require('./VoteAutomaton.vue');
 
-//var element = document.getElementById('main');
-//element.textContent = "Hello, world!";
+new Vue({
+    el: '#app',
+    components: { VoteAutomaton }
+})
