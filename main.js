@@ -1,12 +1,6 @@
-var grid = [
-    [false, false, false],
-    [false, false, false],
-    [false, false, false]
-];
-    
-
+// The identity CA
 function nextStep(grid) {
-    return null;
+    return grid;
 }
 
 function meaningOfLife() {
@@ -15,5 +9,6 @@ function meaningOfLife() {
 
 
 module.exports = {
-    meaningOfLife: meaningOfLife
+    meaningOfLife: meaningOfLife,
+    nextStep: nextStep
 };
