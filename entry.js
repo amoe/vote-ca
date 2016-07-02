@@ -1,6 +1,6 @@
 // webpack entry point
 
-var mainModule = require('./main.js');
+var vote = require('./vote.js');
 
 //var element = document.getElementById('main');
 //element.textContent = "Hello, world!";
