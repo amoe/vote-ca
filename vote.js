@@ -5,7 +5,28 @@ import _ from 'lodash';
 var nextStateMap = [
     false, false, false, false, false,
     true, true, true, true, true
-]
+];
+
+function flipCoin() {
+    return Math.random() < 0.5 ? false : true;
+}
+
+function randomGrid(ySize, xSize) {
+    var yIndex, xIndex;
+
+    var newGrid = [];
+    for (yIndex of _.range(ySize)) {
+        var thisRow = [];
+        
+        for (xIndex of _.range(xSize)) {
+            thisRow.push(flipCoin());
+        }
+
+        newGrid.push(thisRow);
+    }
+
+    return newGrid;
+}
 
 function nextStep(grid) {
     var yRange = grid.length;
@@ -77,5 +98,6 @@ function meaningOfLife() {
 
 module.exports = {
     meaningOfLife: meaningOfLife,
-    nextStep: nextStep
+    nextStep: nextStep,
+    randomGrid: randomGrid
 };

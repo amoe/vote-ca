@@ -41,9 +41,16 @@ it('surrounded true will flip', function () {
 });
 
 
+it('should have correct size', function () {
+    var newGrid = something.randomGrid(9, 10);
+    assert.equal(9, newGrid.length);
+    assert.equal(10, newGrid[0].length);
+});
+
 it('should be correct', function () {
     assert.equal(42, something.meaningOfLife());
 });
+
 
 
 

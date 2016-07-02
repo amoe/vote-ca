@@ -15,14 +15,21 @@
 </template>
 
 <script>
+import vote from './vote.js';
+
 console.log("inside app component");
 
 export default {
     data: function () {
         return {
             ySize: 64,
-            xSize: 64
+            xSize: 64,
+            grid: []
         }
+    },
+    created: function () {
+        this.grid = vote.randomGrid(this.ySize, this.xSize);
+        console.log(JSON.stringify(this.grid));
     }
 }
 </script>
