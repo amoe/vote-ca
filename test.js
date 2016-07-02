@@ -2,8 +2,10 @@
 
 var assert = require('chai').assert;
 
-it('should return -1 when the value is not present', function () {
-    assert.equal(-1, [1,2,3].indexOf(5));
+var something = require('./main.js');
+
+it('should be correct', function () {
+    assert.equal(42, something.meaningOfLife());
 });
 
 
