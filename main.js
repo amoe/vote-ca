@@ -14,8 +14,9 @@ function nextStep(grid) {
     var newGrid = _.cloneDeep(grid);
 
     // ES6 only
-    for (let yIndex in _.range(yRange)) {
-        for (let xIndex in _.range(xRange)) {
+    var yIndex, xIndex;
+    for (yIndex of _.range(yRange)) {
+        for (xIndex of _.range(xRange)) {
             newGrid[yIndex][xIndex] = nextState(grid, yIndex, xIndex);
         }
     }
@@ -26,11 +27,48 @@ function nextStep(grid) {
 function nextState(grid, yIndex, xIndex) {
     // FIXME: assert arguments
 
-    // Identity CA
-    return grid[yIndex][xIndex];
+    // Calculate the sum of neighbours
+    var possibleOffsets = [
+        [-1, -1], [-1, 0], [-1, +1],
+        [0, -1],  [0, 0],  [0, +1],
+        [+1, -1], [+1, 0], [+1, +1]
+    ];
+
+    var yLimit = grid.length - 1;
+    var xLimit = grid[0].length - 1;
+
+    var nineSum = 0;
+    var offset;
+    for (offset of possibleOffsets) {
+        var [yOffset, xOffset] = offset;
+        var neighbourY = yIndex + yOffset;
+        var neighbourX = xIndex + xOffset;
+
+        if (neighbourX < 0 || neighbourX > xLimit)
+            continue;
+        if (neighbourY < 0 || neighbourY > yLimit)
+            continue;
+
+        var neighbourValue = grid[neighbourY][neighbourX];
+        
+         if (neighbourValue === true) {
+            nineSum += 1;
+        } else if (neighbourValue === false) {
+            nineSum += 0;       // Don't touch the value.
+        } else {
+            throw Error(
+                "unexpected value found in neighbour: " + neighbourValue
+            );
+        }
+    }
+
+    // FIXME: Assert that the nineSum is now a reasonable value.
+
+    // Get the next state value from the majority vote.
+    var newValue = nextStateMap[nineSum];
+
+    return newValue;
 }
-
-
 
 function meaningOfLife() {
     return 42;
