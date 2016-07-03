@@ -1,11 +1,20 @@
 import _ from 'lodash';
 
-// This is effectively used as a dictionary to determine the next state.
-// [Rucker & Walker, 1997]
-var nextStateMap = [
+// Rules are from [Rucker & Walker, 1997]
+
+// Simple majority vote, this rule will only evolve for a dozen or so steps.
+var majorityVoteMap = [
     false, false, false, false, false,
     true, true, true, true, true
 ];
+
+// Vichniac vote modification allows more change at the boundaries.
+var vichniacVoteMap = [
+    false, false, false, false, true,
+    false, true, true, true, true
+];
+
+
 
 function flipCoin() {
     return Math.random() < 0.5 ? false : true;
@@ -86,7 +95,7 @@ function nextState(grid, yIndex, xIndex) {
     // FIXME: Assert that the nineSum is now a reasonable value.
 
     // Get the next state value from the majority vote.
-    var newValue = nextStateMap[nineSum];
+    var newValue = vichniacVoteMap[nineSum];
 
     return newValue;
 }
