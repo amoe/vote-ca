@@ -1,5 +1,6 @@
 # travis CI config file
 
+dist: xenial
 language: node_js
 node_js:
   - "4"
